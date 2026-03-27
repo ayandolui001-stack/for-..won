@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Queen Bidwiya</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ---------------------------------- */
+        /* CSS VARIABLES & RESET              */
+        /* ---------------------------------- */
+        :root {
+            --primary-pink: #ff3f6c;
+            --secondary-pink: #ffafbd;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --border-glow: rgba(255, 255, 255, 0.6);
+            --text-main: #2d3436;
+            --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Animated Gradient Background */
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffd1ff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ---------------------------------- */
+        /* PREMIUM FLOWER SYSTEM              */
+        /* ---------------------------------- */
+        .flower-particle {
+            position: fixed;
+            top: -10%;
+            z-index: 1;
+            pointer-events: none;
+            animation: fallAnimation linear forwards;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            user-select: none;
+        }
+
+        @keyframes fallAnimation {
+            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg) translateX(50px); opacity: 0; }
+        }
+
+        /* ---------------------------------- */
+        /* MAIN CARD ARCHITECTURE             */
+        /* ---------------------------------- */
+        .master-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border-glow);
+            padding: 50px 30px;
+            border-radius: 60px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            width: 90%;
+            max-width: 440px;
+            position: relative;
+            z-index: 10;
+            transition: transform 0.3s ease;
+            animation: cardEntrance 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(100px) scale(0.8) rotate(-5deg); }
+            to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+        }
+
+        /* Floating Badge Design */
+        .badge-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 30px;
+        }
+
+        .main-badge {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Parisienne', cursive;
+            font-size: 5rem;
+            color: var(--primary-pink);
+            box-shadow: 0 15px 35px rgba(255, 63, 108, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge-ring {
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 2px dashed var(--primary-pink);
+            border-radius: 50%;
+            animation: rotateRing 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes rotateRing { to { transform: rotate(360deg); } }
+
+        /* Typography */
+        .title {
+            font-family: 'Parisienne', cursive;
+            font-size: 3.8rem;
+            color: #b33939;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            padding: 0 10px;
+        }
+
+        .ayan-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--primary-pink);
+        }
+
+        /* ---------------------------------- */
+        /* BUTTONS & INTERACTION              */
+        /* ---------------------------------- */
+        .btn-wrapper {
+            position: relative;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-ui {
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Quicksand', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #forgiveBtn {
+            background: linear-gradient(45deg, #00b894, #55efc4);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 184, 148, 0.3);
+            z-index: 15;
+        }
+
+        #forgiveBtn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 184, 148, 0.4);
+        }
+
+        #noBtn {
+            background: linear-gradient(45deg, #ff7675, #d63031);
+            color: white;
+            position: absolute;
+            z-index: 20;
+            box-shadow: 0 10px 20px rgba(214, 48, 49, 0.2);
+            transition: left 0.15s ease-out, top 0.15s ease-out;
+        }
+
+        /* ---------------------------------- */
+        /* SUCCESS CONTENT                    */
+        /* ---------------------------------- */
+        .success-box {
+            display: none;
+            animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .celebrate-icons {
+            font-size: 5rem;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .footer-text {
+            font-weight: bold;
+            color: var(--primary-pink);
+            font-size: 1.4rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="particle-layer"></div>
+
+    <div class="master-card" id="cardContainer">
+        
+        <div id="apologyStage">
+            <div class="badge-container">
+                <div class="main-badge">B</div>
+                <div class="badge-ring"></div>
+            </div>
+            
+            <h1 class="title">Sorry Bidwiya</h1>
+            <p class="subtitle">
+                Ami jani ami tomake khub ragiyechhi. <br>
+                Tomar ei <span class="ayan-name">Ayan</span> ke ki ektubari khoma kora jay na? <br>
+                Plz lokkhuti, ebarer moto maaf kore dao! 🥺
+            </p>
+            
+            <div class="btn-wrapper">
+                <button class="btn-ui" id="forgiveBtn" onclick="onSuccess()">Khoma Korlam</button>
+                <button class="btn-ui" id="noBtn">Korbo Na</button>
+            </div>
+        </div>
+
+        <div id="successStage" class="success-box">
+            <h1 class="title" style="color: #ff1493; font-size: 4.5rem;">Yayyy! ❤️</h1>
+            <span class="celebrate-icons">🌸✨🌸</span>
+            <p class="subtitle" style="font-size: 1.3rem;">
+                Thank you so much! <br>
+                Tumi thakle amar prithibi rongeen hoye jay. <br>
+                <span class="footer-text">Love You Forever, Bidwiya! 🥰</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        /* 1. PARTICLE SYSTEM - Optimized for performance */
+        const particleLayer = document.getElementById('particle-layer');
+        const flowerIcons = ['🌸', '🌺', '🌹', '🌷', '🌼', '🌻', '💐', '🌈'];
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'flower-particle';
+            particle.innerHTML = flowerIcons[Math.floor(Math.random() * flowerIcons.length)];
+            
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.fontSize = Math.random() * 20 + 20 + 'px';
+            particle.style.animationDuration = Math.random() * 3 + 4 + 's';
+            particle.style.opacity = Math.random() * 0.5 + 0.5;
+            
+            particleLayer.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 7000);
+        }
+        setInterval(createParticle, 300);
+
+        /* 2. EVASION LOGIC - Boundary Protection Included */
+        const noBtn = document.getElementById('noBtn');
+        const card = document.getElementById('cardContainer');
+
+        function moveEvasiveButton(e) {
+            // Get Screen Boundary
+            const winW = window.innerWidth;
+            const winH = window.innerHeight;
+
+            // Get Button size
+            const bW = noBtn.offsetWidth;
+            const bH = noBtn.offsetHeight;
+
+            // Safe Padding (Jate screen er baire na beroy)
+            const pad = 60;
+
+            // Random coordinates within safe zone
+            const newX = Math.floor(Math.random() * (winW - bW - pad * 2)) + pad;
+            const newY = Math.floor(Math.random() * (winH - bH - pad * 2)) + pad;
+
+            // Apply positions
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+
+            // Prevent mobile scrolling/clicking
+            if(e && e.cancelable) e.preventDefault();
+        }
+
+        // Attach listeners for both Desktop and Mobile
+        noBtn.addEventListener('mouseenter', moveEvasiveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            moveEvasiveButton(e);
+        }, { passive: false });
+        
+        // Safety: even if they click, it moves
+        noBtn.addEventListener('click', moveEvasiveButton);
+
+        /* 3. SUCCESS TRANSITION */
+        function onSuccess() {
+            document.getElementById('apologyStage').style.display = 'none';
+            document.getElementById('successStage').style.display = 'block';
+            
+            // Add extra bloom particles
+            for(let i=0; i<40; i++) {
+                setTimeout(createParticle, i * 100);
+            }
+
+            // Change Card background slightly to be more bright
+            card.style.background = 'rgba(255, 255, 255, 0.7)';
+            card.style.boxShadow = '0 30px 100px rgba(255, 20, 147, 0.3)';
+        }
+
+        /* Extra Touch prevention on main card to keep button moving */
+        document.addEventListener('touchmove', (e) => {
+            if(e.target === noBtn) e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>
